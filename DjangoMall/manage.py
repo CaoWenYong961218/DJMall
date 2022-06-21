@@ -2,11 +2,15 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from DJMall.settings.base import DEBUG
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DJMall.settings')
+    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DJMall.settings')
+    if DEBUG:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DJMall.settings.develop')
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DJMall.settings.release')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
