@@ -13,7 +13,7 @@ DATABASES = {
 }
 
 STATICFILES_DIRS = [
-    BASE_DIR / f'themes/{TEMPLATE_NAME}/templates'
+    BASE_DIR / f'themes/{TEMPLATE_NAME}/static'
 ]
 
 MEDIA_ROOT = BASE_DIR / 'media'
