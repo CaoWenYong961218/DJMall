@@ -1,4 +1,3 @@
-from msilib import add_data
 from django.db import models
 
 class DJMallBaseModel(models.Model):
