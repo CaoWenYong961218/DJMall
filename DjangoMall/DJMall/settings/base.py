@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'dadmin.apps.DadminConfig',
     'captcha',
+    'product.apps.ProductConfig',
 ]
 
 MIDDLEWARE = [
