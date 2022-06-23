@@ -6,23 +6,23 @@
 {% block extrahead %}{% endblock %}
 
 <!-- 覆盖掉默认的全局样式 -->
-{% block stylesheet %}{% endblock %}
+<!-- {% block stylesheet %}{% endblock %} -->
 
 <!-- 覆盖掉登录页独有的样式 -->
-{% block extrastyle %}
+<!-- {% block extrastyle %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'dadmin/css/login.css' %}">
-{% endblock %}
+{% endblock %} -->
 
 <!-- 覆盖全局header -->
-{% block branding %}{% endblock %}
+<!-- {% block branding %}{% endblock %} -->
 
 
-{% block responsive %}
+<!-- {% block responsive %}
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-{% endblock %}
+{% endblock %} -->
 
 <!-- 登录表单区块的钩子 -->
 {% block content %}
@@ -51,35 +51,34 @@
                     {% endfor %}
                     {% endif %}
 
-                    <p class="errornote">
+                    <!-- <p class="errornote">
                         {% blocktranslate trimmed %}
                             You are authenticated as {{ username }}, but are not authorized to
                             access this page. Would you like to login to a different account?
                         {% endblocktranslate %}
-                    </p>
+                    </p> -->
                     
                     <form action="{{ app_path }}" method="post">
                         {% csrf_token %}
-                        <div id="inputfields"></div>
+                        <div id="inputfields">
                         <div class="field">
                             <div class="control">
                                 {{ form.username.errors }}
-                                {# {{ form.username.label_tag }} #}
+                                <!-- {{ form.username.label_tag }}  -->
                                 {{ form.username }}
-                                <!--<input class="input is-large" type="email" placeholder="Your Email" autofocus="">-->
+                                <!-- <input class="input is-large" type="email" placeholder="Your Email" autofocus=""> -->
                             </div>
                         </div>
 
                         <div class="field">
                             <div class="control">
                                 {{ form.password.errors }}
-                                {# {{ form.password.label_tag }} #}
+                                <!-- {{ form.password.label_tag }}  -->
                                 {{ form.password }}
-                                <input type="hidden" name="next" value="{{ next }}">
-                                <!--<input class="input is-large" type="password" placeholder="Your Password">-->
+                                <!-- <input class="input is-large" type="password" placeholder="Your Password"> -->
                             </div>
                         </div>
-
+                        </div>
                         <div class="field">
                             <label class="checkbox">
                                 <input type="checkbox">
@@ -103,20 +102,20 @@
     </div>
 </section>
 
+
 <script>
-    var a = document.querySelector('#inputfields').getElementsByTagName('input')
-    for(var i=0; i <= a.length; i++){
-        if (a[i]) {
-            a[i].setAttribute('class', 'input is-large')
-            console.log(a[i].getAttribute('name'))
-            if(a[i].getAttribute('name') === 'username'){
-                a[i].setAttribute('placeholder', '请输入用户名')
+    var inputfields = document.querySelector('#inputfields').getElementsByTagName('input')
+    for (var i=0; i<=inputfields.length; i++){
+        if (inputfields[i]){
+            inputfields[i].setAttribute('class', 'input is-large')
+            console.log(inputfields[i].getAttribute('name'))
+            if (inputfields[i].getAttribute('name') === 'username'){
+                inputfields[i].setAttribute('placeholder', '请输入用户名')
             }
-            else if(a[i].getAttribute('name') === 'password'){
-                a[i].setAttribute('placeholder', '请输入密码')
+            else if (inputfields[i].getAttribute('name') === 'password'){
+                inputfields[i].setAttribute('placeholder', '请输入密码')
             }
-        }
+        } 
     }
-    // console.log(a)
 </script>
 {% endblock %}
