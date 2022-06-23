@@ -23,6 +23,7 @@ from apps.dadmin.admin import admin_site
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dadmin/', admin_site.urls),
+    path('captcha/', include('captcha.urls')),
     path('news/', include('news.urls')),
 ]
 
