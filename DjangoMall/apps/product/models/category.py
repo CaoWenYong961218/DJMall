@@ -17,12 +17,16 @@ class DJMallProductCategory(DJMallBaseModel):
     icon = models.ImageField(
         "分类图标",
         upload_to="product/category/icon/",
+        blank = True,
+        null = True,
         max_length=200,
     )
     
     pc_img = models.ImageField(
         "首页楼层背景",
         upload_to="product/category/pc/img/",
+        blank = True,
+        null = True,
         height_field=None,
         width_field=None,
         max_length=200,
@@ -35,6 +39,7 @@ class DJMallProductCategory(DJMallBaseModel):
         db_table = 'd_product_category'
         ordering = ['-sort']
         verbose_name = "商品分类"
+        verbose_name_plural = verbose_name
     
     def __str__(self) -> str:
         return self.name
@@ -52,3 +57,6 @@ class DJMallProductBrand(DJMallBaseModel):
         null = True,
     )
     sort = models.PositiveIntegerField("排序", default=0)
+    class Meta:
+        verbose_name = "商品品牌"
+        verbose_name_plural = verbose_name

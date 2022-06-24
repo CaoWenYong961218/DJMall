@@ -30,6 +30,7 @@ class DJMallProductSPU(DJMallBaseModel):
         db_table = 'd_product_spu'
         ordering = ['-add_date']
         verbose_name = "商品SPU"
+        verbose_name_plural = verbose_name
     
     def __str__(self) -> str:
         return self.title
@@ -65,6 +66,7 @@ class DJMallProductSKU(DJMallBaseModel):
         db_table = 'd_product_sku'
         ordering = ['-sort']
         verbose_name = "商品SKU"
+        verbose_name_plural = verbose_name
     
     def __str__(self) -> str:
         return f'{self.spu.title} {self.options}'
@@ -82,6 +84,7 @@ class DJMallProductSPUSpec(DJMallBaseModel):
         db_table = 'd_product_spu_spec'
         ordering = ['-add_date']
         verbose_name = "商品规格"
+        verbose_name_plural = verbose_name
     
     def __str__(self) -> str:
         return f'{self.spu.title}的规格 {self.name}'
@@ -99,6 +102,7 @@ class DJMallProductSPUSpecOption(DJMallBaseModel):
         db_table = 'd_product_spu_spec_option'
         ordering = ['-add_date']
         verbose_name = "商品规格值"
+        verbose_name_plural = verbose_name
     
     def __str__(self) -> str:
         return f'{self.spec.spu.title}的规格 {self.spec.name}的规格值{self.value}'
@@ -119,6 +123,7 @@ class DJMallProductSPUCarouse(DJMallBaseModel):
         db_table = 'd_product_carouse'
         ordering = ['-sort']
         verbose_name = "商品轮播图"
+        verbose_name_plural = verbose_name
     
     def __str__(self) -> str:
         return f'{self.spu.title}的轮播图{self.img}'
